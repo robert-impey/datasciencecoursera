@@ -1,3 +1,5 @@
+source("lib.R")
+
 rankhospital <- function(state, outcome, num = "best") {
   if (num == "best")
   {
