@@ -70,11 +70,15 @@ if (!file.exists(idahoCommunitiesFile)) {
 
 DT <- read.csv(idahoCommunitiesFile, header = TRUE)
 
-system.time(sapply(split(DT$pwgtp15,DT$SEX),mean))
-system.time({mean(DT[DT$SEX==1,]$pwgtp15); mean(DT[DT$SEX==2,]$pwgtp15)})
-#DT[,mean(pwgtp15),by=SEX]
-system.time(tapply(DT$pwgtp15,DT$SEX,mean))
-#mean(DT$pwgtp15,by=DT$SEX)
-#rowMeans(DT)[DT$SEX==1]; rowMeans(DT)[DT$SEX==2]
+print(tapply(DT$pwgtp15,DT$SEX,mean))
+print(sapply(split(DT$pwgtp15,DT$SEX),mean))
+print(mean(DT$pwgtp15,by=DT$SEX))
+print(mean(DT[DT$SEX==1,]$pwgtp15))
+print(mean(DT[DT$SEX==2,]$pwgtp15))
 
+print(system.time(tapply(DT$pwgtp15,DT$SEX,mean)))
+print(system.time(sapply(split(DT$pwgtp15,DT$SEX),mean)))
+print(system.time(mean(DT$pwgtp15,by=DT$SEX)))
+print(system.time(mean(DT[DT$SEX==1,]$pwgtp15)))
+print(system.time(mean(DT[DT$SEX==2,]$pwgtp15)))
 
